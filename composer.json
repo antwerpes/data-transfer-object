@@ -1,0 +1,46 @@
+{
+    "name": "antwerpes/data-transfer-object",
+    "description": "Simple json encoding and decoding for PHP data objects",
+    "keywords": [
+        "chiiya",
+        "json-encoding"
+    ],
+    "homepage": "https://github.com/antwerpes/data-transfer-object",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Elisha Witte",
+            "email": "github@chiiya.moe",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "chiiya/code-style-php": "^3.0",
+        "friendsofphp/php-cs-fixer": "^3.21.1",
+        "phpro/grumphp": "^2.7",
+        "phpunit/phpunit": "^10.3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Antwerpes\\DataTransferObject\\": "src"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage",
+        "format": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --allow-risky=yes"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpro/grumphp": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
