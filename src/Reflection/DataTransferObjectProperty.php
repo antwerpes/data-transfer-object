@@ -44,7 +44,7 @@ class DataTransferObjectProperty
         $mapAttribute = $this->property->getAttributes(Map::class);
 
         return count($mapAttribute)
-                    ? $mapAttribute[0]->newInstance()->from ?: $this->property->getName()
+                        ? $mapAttribute[0]->newInstance()->from ?: $this->property->getName()
             : $this->property->getName();
     }
 
@@ -53,7 +53,7 @@ class DataTransferObjectProperty
         $mapAttribute = $this->property->getAttributes(Map::class);
 
         return count($mapAttribute)
-                    ? $mapAttribute[0]->newInstance()->to ?: $this->property->getName()
+                        ? $mapAttribute[0]->newInstance()->to ?: $this->property->getName()
             : $this->property->getName();
     }
 
