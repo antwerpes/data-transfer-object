@@ -4,8 +4,10 @@ namespace Antwerpes\DataTransferObject\Reflection;
 
 use Antwerpes\DataTransferObject\Attributes\Cast;
 use Antwerpes\DataTransferObject\Attributes\Map;
+use Antwerpes\DataTransferObject\Casts\DTOCaster;
 use Antwerpes\DataTransferObject\Casts\ScalarCaster;
 use Antwerpes\DataTransferObject\CastsProperty;
+use Antwerpes\DataTransferObject\DataTransferObject;
 use ReflectionNamedType;
 use ReflectionProperty;
 use ReflectionUnionType;
@@ -70,6 +72,12 @@ class DataTransferObjectProperty
             $caster = $castWithAttribute[0]->newInstance();
 
             return new $caster->casterClass($types, ...$caster->args);
+        }
+
+        foreach ($types as $type) {
+            if (is_subclass_of($type, DataTransferObject::class)) {
+                return new DTOCaster($types);
+            }
         }
 
         if (array_intersect($types, ['string', 'int', 'bool', 'false', 'float'])) {
