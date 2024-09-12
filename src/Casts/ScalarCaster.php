@@ -17,7 +17,7 @@ readonly class ScalarCaster implements CastsProperty
         }
 
         foreach ($this->types as $type) {
-            return match ($type->getName()) {
+            return match ($type) {
                 'string' => (string) $value,
                 'int' => (int) $value,
                 'bool', 'false' => (bool) $value,
