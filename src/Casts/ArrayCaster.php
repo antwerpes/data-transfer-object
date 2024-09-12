@@ -15,8 +15,12 @@ readonly class ArrayCaster implements CastsProperty
         private string $itemType,
     ) {}
 
-    public function unserialize(mixed $value): array|ArrayAccess
+    public function unserialize(mixed $value): null|array|ArrayAccess
     {
+        if ($value === null) {
+            return null;
+        }
+
         foreach ($this->types as $type) {
             if ($type === 'array') {
                 return $this->mapInto(destination: [], items: $value);
