@@ -26,8 +26,8 @@ readonly class DTOCaster implements CastsProperty
         return $this->types[0]::decode($value);
     }
 
-    public function serialize(mixed $value)
+    public function serialize(mixed $value): ?array
     {
-        return $value->encode();
+        return $value?->encode();
     }
 }
