@@ -2,6 +2,7 @@
 
 namespace Antwerpes\DataTransferObject\Reflection;
 
+use ReflectionMethod;
 use Antwerpes\DataTransferObject\Attributes\Cast;
 use Antwerpes\DataTransferObject\Attributes\Map;
 use Antwerpes\DataTransferObject\Casts\DTOCaster;
@@ -36,7 +37,7 @@ class DataTransferObjectProperty
         $class = $this->property->getDeclaringClass();
 
         do {
-            if ($class->getConstructor()) {
+            if ($class->getConstructor() instanceof ReflectionMethod) {
                 foreach ($class->getConstructor()->getParameters() as $parameter) {
                     if (($parameter->getName() === $this->property->getName()) && $parameter->isDefaultValueAvailable()) {
                         return $parameter->getDefaultValue();
