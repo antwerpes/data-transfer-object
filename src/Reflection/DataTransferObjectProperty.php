@@ -33,6 +33,18 @@ class DataTransferObjectProperty
 
     public function getDefaultValue(): mixed
     {
+        $class = $this->property->getDeclaringClass();
+
+        do {
+            if ($class->getConstructor()) {
+                foreach ($class->getConstructor()->getParameters() as $parameter) {
+                    if (($parameter->getName() === $this->property->getName()) && $parameter->isDefaultValueAvailable()) {
+                        return $parameter->getDefaultValue();
+                    }
+                }
+            }
+        } while ($class = $class->getParentClass());
+
         return $this->property->getDefaultValue();
     }
 
