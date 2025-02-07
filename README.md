@@ -28,13 +28,13 @@ use Antwerpes\DataTransferObject\DataTransferObject;
 class User extends DataTransferObject
 {
     public function __construct(
-        public string $name;
+        public string $name,
         #[Cast(CustomDateCaster::class)]
-        public DateTimeInterface $birthday;
+        public DateTimeInterface $birthday,
         #[Map(from: 'address.city')]
-        public string $city;
+        public string $city,
         #[Cast(ArrayCaster::class, itemType: Interest:class)]
-        public array $interests;
+        public array $interests,
     ) {}
 }
 ```
@@ -91,8 +91,10 @@ use Antwerpes\DataTransferObject\Attributes\Map;
 
 class User extends DataTransferObject
 {
-    #[Map(from: 'address.city', to: 'address.city')]
-    public string $city;
+    public function __construct(
+        #[Map(from: 'address.city', to: 'address.city')]
+        public string $city,
+    ) {}
 }
 ```
 
