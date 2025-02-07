@@ -2,13 +2,13 @@
 
 namespace Antwerpes\DataTransferObject\Reflection;
 
-use ReflectionMethod;
 use Antwerpes\DataTransferObject\Attributes\Cast;
 use Antwerpes\DataTransferObject\Attributes\Map;
 use Antwerpes\DataTransferObject\Casts\DTOCaster;
 use Antwerpes\DataTransferObject\Casts\ScalarCaster;
 use Antwerpes\DataTransferObject\CastsProperty;
 use Antwerpes\DataTransferObject\DataTransferObject;
+use ReflectionMethod;
 use ReflectionNamedType;
 use ReflectionProperty;
 use ReflectionUnionType;
