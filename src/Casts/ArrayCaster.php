@@ -15,7 +15,7 @@ readonly class ArrayCaster implements CastsProperty
         private string $itemType,
     ) {}
 
-    public function unserialize(mixed $value): null|array|ArrayAccess
+    public function unserialize(mixed $value): array|ArrayAccess|null
     {
         if ($value === null) {
             return null;
