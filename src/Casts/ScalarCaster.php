@@ -10,7 +10,7 @@ readonly class ScalarCaster implements CastsProperty
         private array $types,
     ) {}
 
-    public function unserialize(mixed $value): null|bool|float|int|string
+    public function unserialize(mixed $value): bool|float|int|string|null
     {
         if ($value === null) {
             return null;
