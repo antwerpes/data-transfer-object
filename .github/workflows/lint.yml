@@ -15,7 +15,7 @@ jobs:
           php-version: '8.4'
           coverage: none
       - name: Install composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
       - name: Easy Coding Standard Action
         run: ./vendor/bin/ecs check --fix
       - name: PHP-CS-Fixer Action
@@ -23,7 +23,7 @@ jobs:
       - name: Rector Action
         run: ./vendor/bin/rector process
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: Lint files
           commit_options: '--no-verify'
